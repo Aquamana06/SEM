@@ -15,6 +15,6 @@ source ~/.venv/bin/activate
 
 ## usage
 ```sh
-python SEM.py --data_path data.csv --diagram_path sem_diagram3.png
+uv run python SEM.py --data_path data.csv --diagram_path sem_diagram3.png
 ```
 
