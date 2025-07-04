@@ -57,8 +57,8 @@ def main():
     parser.add_argument(
         "--diagram_path",
         type=str, 
-        default="sem_diagram3.png", 
-        help="パス図の保存先ファイル名（デフォルト: sem_diagram3.png, 保存しない場合は空文字列）"
+        default="sem_diagram.png", 
+        help="パス図の保存先ファイル名（デフォルト: sem_diagram.png, 保存しない場合は空文字列）"
     )
     args = parser.parse_args()
 
