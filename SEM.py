@@ -1,6 +1,6 @@
 import pandas as pd
 from semopy import Model, calc_stats, semplot
-
+import argparse
 
 # モデル記述：潜在変数名は英語、観測変数は e1〜e6
 MODEL_DESC = """
@@ -13,7 +13,6 @@ CuriosityInResearch =~ V1 + V2 + V6
 InterestInGrad ~ 将来に対する関心 + CuriosityInResearch
 CuriosityInResearch ~ 将来に対する関心
 """
-
 
 def run_sem(data_path: str, diagram_path: str = None):
     """
@@ -47,17 +46,23 @@ def run_sem(data_path: str, diagram_path: str = None):
         semplot(model, diagram_path)
         print(f"\nModel diagram saved to: {diagram_path}")
 
-
 def main():
-    # データファイルのパス（例：e1〜e6が入ったCSV）
-    data_file = "data.csv"  # 例：columns=["e1", "e2", ..., "e6"]
+    parser = argparse.ArgumentParser(description="SEM（共分散構造分析）を実行するスクリプト")
+    parser.add_argument(
+        "--data_path",
+        type=str, 
+        default="data.csv", 
+        help="入力データCSVファイルのパス（デフォルト: data.csv）"
+    )
+    parser.add_argument(
+        "--diagram_path",
+        type=str, 
+        default="sem_diagram3.png", 
+        help="パス図の保存先ファイル名（デフォルト: sem_diagram3.png, 保存しない場合は空文字列）"
+    )
+    args = parser.parse_args()
 
-    # パス図を保存する場合（不要なら None）
-    output_diagram = "sem_diagram3.png"
-
-    # 分析実行
-    run_sem(data_file, output_diagram)
-
+    run_sem(args.data_path, args.diagram_path)
 
 if __name__ == "__main__":
     main()

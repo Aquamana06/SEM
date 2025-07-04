@@ -2,8 +2,8 @@ digraph G {
 	overlap=scale splines=true
 	edge [fontsize=12]
 	node [fillcolor="#cae6df" shape=circle style=filled]
-	"将来に対する関心" [label="将来に対する関心"]
 	InterestInGrad [label=InterestInGrad]
+	"将来に対する関心" [label="将来に対する関心"]
 	CuriosityInResearch [label=CuriosityInResearch]
 	node [shape=box style=""]
 	V1 [label=V1]
